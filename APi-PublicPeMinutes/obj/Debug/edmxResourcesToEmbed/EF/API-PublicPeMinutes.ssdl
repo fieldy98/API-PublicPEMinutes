@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PEMinutesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EnteredPeMinutes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherName" Type="varchar" MaxLength="255" />
+    <Property Name="Minutes" Type="int" />
+    <Property Name="BadgeNumber" Type="int" />
+    <Property Name="School" Type="varchar" MaxLength="255" />
+    <Property Name="Grade" Type="varchar" MaxLength="255" />
+    <Property Name="Activity" Type="varchar" MaxLength="255" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="SubstituteName" Type="varchar" MaxLength="255" />
+    <Property Name="IsApproved" Type="int" />
+    <Property Name="ApprovedBy" Type="varchar" MaxLength="255" />
+    <Property Name="ApproveTime" Type="datetime" />
+    <Property Name="InstructionTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MinutesAdmins">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="BADGE_NUM" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SchoolTeachersWithADLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JOB_TITLE" Type="varchar" MaxLength="255" />
+    <Property Name="Organization_Name" Type="varchar" MaxLength="255" />
+    <Property Name="TYPE" Type="varchar" MaxLength="255" />
+    <Property Name="ABBREV_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="SCHOOL_YEAR" Type="varchar" MaxLength="255" />
+    <Property Name="COURSE_TITLE" Type="varchar" MaxLength="255" />
+    <Property Name="PERIOD_BEGIN" Type="varchar" MaxLength="255" />
+    <Property Name="MAX_STUDENTS" Type="varchar" MaxLength="255" />
+    <Property Name="SECTION_GU" Type="varchar" MaxLength="255" />
+    <Property Name="TeacherLastName" Type="varchar" MaxLength="255" />
+    <Property Name="TeacherFirstName" Type="varchar" MaxLength="255" />
+    <Property Name="BADGE_NUM" Type="varchar" MaxLength="255" />
+    <Property Name="PERSON_GU" Type="varchar" MaxLength="255" />
+    <Property Name="rn" Type="varchar" MaxLength="255" />
+    <Property Name="LOGIN_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="aId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SchoolToPrincipal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORGANIZATION_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="SchoolAddress" Type="varchar" MaxLength="255" />
+    <Property Name="Principal" Type="varchar" MaxLength="255" />
+    <Property Name="adLoginName" Type="varchar" MaxLength="255" />
+    <Property Name="BADGE_NUM" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SubMinutes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherName" Type="varchar" MaxLength="255" />
+    <Property Name="Minutes" Type="int" />
+    <Property Name="BadgeNumber" Type="int" />
+    <Property Name="School" Type="varchar" MaxLength="255" />
+    <Property Name="Grade" Type="varchar" MaxLength="255" />
+    <Property Name="Activity" Type="varchar" MaxLength="255" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="SubstituteName" Type="varchar" MaxLength="255" />
+    <Property Name="IsApproved" Type="int" />
+    <Property Name="ApprovedBy" Type="varchar" MaxLength="255" />
+    <Property Name="ApproveTime" Type="datetime" />
+    <Property Name="IsLongTermSub" Type="int" />
+    <Property Name="InstructionTime" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PEMinutes.dbo.SchoolNames' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SchoolNames">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="Organization_Name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="PEMinutesModelStoreContainer">
+    <EntitySet Name="EnteredPeMinutes" EntityType="Self.EnteredPeMinutes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MinutesAdmins" EntityType="Self.MinutesAdmins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolTeachersWithADLogin" EntityType="Self.SchoolTeachersWithADLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolToPrincipal" EntityType="Self.SchoolToPrincipal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubMinutes" EntityType="Self.SubMinutes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolNames" EntityType="Self.SchoolNames" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SchoolNames].[ID] AS [ID], 
+    [SchoolNames].[Organization_Name] AS [Organization_Name]
+    FROM [dbo].[SchoolNames] AS [SchoolNames]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

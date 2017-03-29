@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="PEMinutesEntities-Web.config Connection String" description="PEMinutesEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/EF.API-PublicPeMinutes.csdl|res://*/EF.API-PublicPeMinutes.ssdl|res://*/EF.API-PublicPeMinutes.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=51-dba;initial catalog=PEMinutes;persist security info=True;user id=wthrough;password=password;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\dwhite\\documents\\visual\ studio\ 2017\\Projects\\APi-PublicPeMinutes\\APi-PublicPeMinutes\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PEMinutesEntities']/@connectionString" />
+  </parameter>
+</parameters>
